@@ -1,0 +1,69 @@
+Configuring the routers:
+Router 1
+interface FastEthernet0/0
+ip address 199.210.121.160 255.255.255.0
+interface FastEthernet0/1
+ip address 144.186.104.14 255.255.255.0
+router rip
+Router 2
+interface FastEthernet0/0
+ip address 199.210.121.172 255.255.255.0
+interface FastEthernet0/1
+ip address 144.186.112.1 255.255.255.0
+router rip
+Configuring the switches:
+Switch 1
+interface GigabitEthernet0/1
+switchport mode access
+vlan 10
+
+interface GigabitEthernet0/2
+switchport mode access
+vlan 20
+
+interface GigabitEthernet0/3
+switchport mode access
+vlan 30
+Switch 2
+interface GigabitEthernet0/1
+switchport mode access
+vlan 10
+
+interface GigabitEthernet0/2
+switchport mode access
+vlan 20
+interface GigabitEthernet0/3
+switchport mode access
+vlan 30
+Switch 3
+interface GigabitEthernet0/1
+switchport mode trunk
+encapsulation dot1q
+trunk allowed vlan 10,20,30
+
+interface GigabitEthernet0/2
+switchport mode access
+vlan 10
+
+interface GigabitEthernet0/3
+switchport mode access
+vlan 20
+Configuring the PCs:
+PC 1
+ip address 199.210.121.161 255.255.255.0
+gateway 199.210.121.160
+PC 2
+ip address 199.210.121.162 255.255.255.0
+gateway 199.210.121.160
+PC 3
+ip address 199.210.121.163 255.255.255.0
+gateway 199.210.121.160
+PC 4
+ip address 144.186.104.15 255.255.255.0
+gateway 144.186.104.14
+PC 5
+ip address 144.186.104.16 255.255.255.0
+gateway 144.186.104.14
+PC 6
+ip address 144.186.112.2 255.255.255.0
+gateway 144.186.112.1
